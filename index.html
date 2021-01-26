@@ -12,7 +12,7 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    <header class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <header id="home" class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
         <nav class="container">
             <a class="navbar-brand" href="/">Thomas Pierson</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
@@ -22,39 +22,58 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav ms-md-auto">
                     <li class="nav-item active">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="projects.html">My Projects</a>
+                        <a class="nav-link" href="#projects">My Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Me</a>
+                        <a class="nav-link" href="#about">About Me</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact Me</a>
+                        <a class="nav-link" href="#contact">Contact Me</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <main class="flex-shrink-0">
-        <div class="container bg-light p-5 rounded">
+    <main class="flex-shrink-0 mb-4">
+        <div id="index" class="container bg-light p-4 mb-2 rounded">
             <h1>Hello,</h1>
-            <p class="lead">This is my little part of the web.</p>
+            <p class="lead">Welcome to my little piece of the internet.  I'm a software engineer posting some of my projects online.</p>
         </div>
+
+        <div id="projects" class="container bg-light p-4 mb-2 rounded">
+            <h1>My Projects</h1>
+            <p class="lead">Here are my current projects: <br />
+                <a href="projects/fflegendsIImonstercalculator/index.html"> Final Fantasy Legends II Monster Calculator</a>
+            </p>
+        </div>
+
+        <div id="about" class="container bg-light p-4 mb-2 rounded">
+            <h1>About Me</h1>
+            <p class="lead">Programmer, gamer, nerd.  I'm more of a backend coder but I'm using my github repo to host this site and some side projects I'm working on.  More to come.</p>
+        </div>
+
+        <div id="contact" class="container bg-light p-4 mb-2 rounded">
+            <h1>Contact Me</h1>
+            <a href="mailto:piersontm99@gmail.com">Send me an email!</a>
+        </div>
+
     </main>
 
     <footer class="footer mt-auto py-3 bg-light">
         <div class="container text-center">
-            <span class="text-muted">Copyright Thomas Pierson 2020</span>
+            <span class="text-muted">Copyright Thomas Pierson 2021</span>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
-    <script src='/js/main.js'></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="./js/main.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="h-100" lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>FF Legends II Monster Calculator</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/main.css'>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <header class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+        <nav class="container">
+            <a class="navbar-brand" href="/">Thomas Pierson</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ms-md-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../../index.html#index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../../index.html#projects">My Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html#about">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html#contact">Contact Me</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-shrink-0">
+        <div class="container bg-light p-5 rounded">
+            <div class="row">
+                <div class="col-4">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">Starting monster family: </div>
+                            <div class="col-6">
+                                <select id="monster-family-start">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">Starting monster species: </div>
+                            <div class="col-6">
+                                <select id="monster-species-start">
+                                </select>
+                            </div>
+                        </div>
+                        <div id="initial-monster" class="row">
+                            <div class="col-12">
+                                <input type="checkbox" id="initial-monster-cb">
+                                <label for="initial-monster">Initial monster?</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <span class="col-6">Name: </span>
+                            <span id="monster-stats-start-name" class="col-6"></span>
+                        </div>
+                        <div class="row">
+                            <span class="col-6">HP: </span>
+                            <span id="monster-stats-start-hp" class="col-6"></span>
+                        </div>
+                        <div class="row">
+                            <span class="col-6">STR: </span>
+                            <span id="monster-stats-start-str" class="col-6"></span>
+                        </div>
+                        <div class="row">
+                            <span class="col-6">AGI: </span>
+                            <span id="monster-stats-start-agi" class="col-6"></span>
+                        </div>
+                        <div class="row">
+                            <span class="col-6">MAN: </span>
+                            <span id="monster-stats-start-man" class="col-6"></span>
+                        </div>
+                        <div class="row">
+                            <span class="col-6">DEF: </span>
+                            <span id="monster-stats-start-def" class="col-6"></span>
+                        </div>
+                        <div class="row">
+                            <p id="monster-stats-start-abilities" class="col-12">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">Dropped monster family: </div>
+                            <div class="col-6">
+                                <select id="monster-family-dropped">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">Dropped monster species: </div>
+                            <div class="col-6">
+                                <select id="monster-species-dropped">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <span class="col-6">Name: </span>
+                            <span id="monster-stats-dropped-name" class="col-6"></span>
+                        </div>
+                        <div class="row">
+                            <span class="col-6">HP: </span>
+                            <span id="monster-stats-dropped-hp" class="col-6"></span>
+                        </div>
+                        <div class="row">
+                            <span class="col-6">STR: </span>
+                            <span id="monster-stats-dropped-str" class="col-6"></span>
+                        </div>
+                        <div class="row">
+                            <span class="col-6">AGI: </span>
+                            <span id="monster-stats-dropped-agi" class="col-6"></span>
+                        </div>
+                        <div class="row">
+                            <span class="col-6">MAN: </span>
+                            <span id="monster-stats-dropped-man" class="col-6"></span>
+                        </div>
+                        <div class="row">
+                            <span class="col-6">DEF: </span>
+                            <span id="monster-stats-dropped-def" class="col-6"></span>
+                        </div>
+                        <div class="row">
+                            <p id="monster-stats-dropped-abilities" class="col-12">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">Resulting monster family: </div>
+                            <div class="col-6">
+                                <span id="monster-family-result">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <span class="col-6">Resulting monster</span>
+                            <span id="monster-result" class="col-6"></span>
+                        </div>
+                        <div class="row">
+                            <span class="col-6">Name: </span>
+                            <span id="monster-stats-result-name" class="col-6"></span>
+                        </div>
+                        <div class="row">
+                            <span class="col-6">HP: </span>
+                            <span id="monster-stats-result-hp" class="col-6"></span>
+                        </div>
+                        <div class="row">
+                            <span class="col-6">STR: </span>
+                            <span id="monster-stats-result-str" class="col-6"></span>
+                        </div>
+                        <div class="row">
+                            <span class="col-6">AGI: </span>
+                            <span id="monster-stats-result-agi" class="col-6"></span>
+                        </div>
+                        <div class="row">
+                            <span class="col-6">MAN: </span>
+                            <span id="monster-stats-result-man" class="col-6"></span>
+                        </div>
+                        <div class="row">
+                            <span class="col-6">DEF: </span>
+                            <span id="monster-stats-result-def" class="col-6"></span>
+                        </div>
+                        <div class="row">
+                            <p id="monster-stats-result-abilities" class="col-12">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container text-center">
+            <span class="text-muted">Copyright Thomas Pierson 2021</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="monsterdatatext.js"></script>
+    <script src="fflegendsIImonster.js"></script>
+</body>
+
+</html>
