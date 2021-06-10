@@ -14,16 +14,17 @@ $(document).ready(function () {
     //Events
     $("#monster-family-start").change(function (event) {
         loadMonsterSpecies(event.target.selectedIndex, "monster-species-start");
-        var monsterStats = determineMonsterStatsToFind();
-        displayMonsterStats(monsterStats, "start");
         displayInitialMonsterCheckbox();
+        var monsterStats = determineMonsterStatsToFind();
+        displayMonsterStats(monsterStats, "start");        
         displayNewMonster();
     });
 
     $("#monster-species-start").change(function (event) {
         var monsterStats = findMonsterStatsByName(monsterDataObjectArray[$("#monster-family-start").val()].monsterSpecies[event.target.selectedIndex]);
-        displayMonsterStats(monsterStats, "start");
         displayInitialMonsterCheckbox();
+        displayMonsterStats(monsterStats, "start");
+        
         displayNewMonster();
     });
 
@@ -41,7 +42,7 @@ $(document).ready(function () {
     });
 
     $("#monster-species-dropped").change(function (event) {
-        var monsterStats = findMonsterStatsByName(monsterDataObjectArray[$("#monster-family-dropped").val()].monsterSpecies[event.target.selectedIndex]);
+        var monsterStats = findMonsterStatsByName(monsterDataObjectArray[$("#monster-family-dropped").prop("selectedIndex")].monsterSpecies[event.target.selectedIndex]);
         displayMonsterStats(monsterStats, "dropped");
         displayNewMonster();
     });
@@ -50,15 +51,15 @@ $(document).ready(function () {
     function loadMonsterData() {
         var monsterDataArray = monsterDataText.split("\n"); //split into rows
         return monsterDataArray.map(row => {
-            splitRow = row.split(',');
+            splitRow = row.split(','); //split row into individual data points
             return {
                 monsterIndex: parseInt(splitRow[0]),
                 monsterCategory: splitRow[1],
                 monsterFamily: splitRow[2],
                 modifier: parseInt(splitRow[3]),
-                monsterSpecies: [splitRow[2], splitRow[4], splitRow[5], splitRow[6], splitRow[7]],
+                monsterSpecies: [splitRow[2]].concat(splitRow.slice(4, splitRow.length - 1)),
                 currentSpeciesIndex: 0,
-                monsterSpeciesLevels: splitRow[8].split(""),
+                monsterSpeciesLevels: splitRow[splitRow.length - 1].split(""),
                 currentSpeciesLevel: 0
             };
         });
@@ -82,7 +83,11 @@ $(document).ready(function () {
 
     function loadMonsterFamily() {
         $.each(monsterDataObjectArray, function (index, monster) {
-            $("select[id*=family").append(new Option(monster.monsterFamily, monster.monsterIndex));
+            if(index < 36)
+            {
+                $("select[id=monster-family-start").append(new Option(monster.monsterFamily, monster.monsterIndex));
+            }
+            $("select[id=monster-family-dropped").append(new Option(monster.monsterFamily, monster.monsterIndex));
         });
     }
 
@@ -143,8 +148,8 @@ $(document).ready(function () {
         startingMonster.currentSpeciesIndex = $("#monster-species-start").val();
         startingMonster.currentSpeciesLevel = parseInt(startingMonster.monsterSpeciesLevels[startingMonster.currentSpeciesIndex], 16);
 
-        //create a dropped monster from the dropped monster dropdowns
-        var droppedMonster = monsterDataObjectArray[$("#monster-family-dropped").val()];
+        //create a dropped monster from the dropped monster dropdown
+        var droppedMonster = monsterDataObjectArray[$("#monster-family-dropped").prop("selectedIndex")];
         droppedMonster.currentSpeciesIndex = $("#monster-species-dropped").val();
         droppedMonster.currentSpeciesLevel = parseInt(droppedMonster.monsterSpeciesLevels[droppedMonster.currentSpeciesIndex], 16);
 
@@ -194,7 +199,7 @@ $(document).ready(function () {
     //uses the highest monster species level to then determine what level in the new species it will transform to
     function determineNewMonsterSpeciesIndex(startingMonster, droppedMonster, newMonster) {
         var maxSpeciesLevel = Math.max(startingMonster.currentSpeciesLevel, droppedMonster.currentSpeciesLevel);
-        var speciesIndex = 4; //there are only 5 ranks for each monster family
+        var speciesIndex = newMonster.monsterSpeciesLevels.length - 1;
         while (maxSpeciesLevel < parseInt(newMonster.monsterSpeciesLevels[speciesIndex], 16) && speciesIndex != 0) {
             speciesIndex--;
         }
