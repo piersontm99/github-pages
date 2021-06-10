@@ -34,7 +34,11 @@ var monsterDataText =
 32,C,Sprite,15,Fairy,Nymph,Sylph,Titania,579AB
 33,A,Skelton,18,Red Bone,Warrior,BoneKing,Lich,126AB
 34,B,Zombie,18,Ghoul,Ghast,Wight,Revenant,248AB
-35,C,O-Bake,18,Phantom,Wraith,Spector,Ghost,578AB`;
+35,C,O-Bake,18,Phantom,Wraith,Spector,Ghost,578AB
+6,A,Plasma,24,Phagocyt,Corpuscl,Cancer,346AB
+6,A,Grippe,24,Virus,Pathogen,Plague,347AB
+24,A,Fenrir,9,OdinCrow,B7
+21,A,TianLung,6,B`;
 
 var monsterStatText = 
 `Fungus,20,45,5,3,5,6,Punch
@@ -219,4 +223,15 @@ Spector,26,756,66,81,81,63,Ice,Stone,Touch,Cure,O-Weapon,O-Change,O-Quake
 Ghost,27,885,78,94,94,75,Drain,Gaze,Erase,Touch,Cure,O-Weapon,O-Change,O-Quake
 Slime-i,21,52,5,2,6,5,Dissolve,X-Fire
 Baby-D-i,22,45,5,2,6,5,Nail,Flame,O-Quake
-Imp,21,31,5,5,6,5,Nail,Sleep`;
+Imp,21,31,5,5,6,5,Nail,Sleep
+Plasma,21,104,15,13,13,13,Dissolve,X-Ice
+Phagocyt,22,156,21,18,18,18,WindUp,Dissolve,X-Ice
+Corpuscl,25,290,36,32,32,32,WindUp,Dissolve,Multiply,Recover,O-Weapon,X-Ice
+Cancer,26,681,78,73,73,73,WindUp,Dissolve,Surprise,Warning,Recover,O-Weapon,X-Ice
+Grippe,21,71,12,15,14,16,Poison,X-Fire
+Virus,22,117,17,21,20,22,Poison,Heat,X-Fire
+Pathogen,24,316,39,45,43,47,Multiply,Poison,Heat,ParaSkin,X-Fire
+Plague,26,606,71,78,76,81,Poison,Heat,ComVirus,Surprise,Multiply,DNA,X-Fire
+Fenrir,24,2500,86,80,80,94,Tornado,Tusk,Blizzard,Recover,O-All
+OdinCrow,26,669,75,85,79,69,Nail,Beak,Blind,Tornado,Surprise,Warning,O-Quake
+TianLung,24,2000,86,94,80,83,Tornado,Tusk,Lightng,Gas,O-All`;
