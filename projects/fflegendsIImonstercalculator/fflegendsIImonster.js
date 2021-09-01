@@ -76,7 +76,7 @@ $(document).ready(function () {
                 agi: parseInt(splitRow[4]),
                 man: parseInt(splitRow[5]),
                 def: parseInt(splitRow[6]),
-                monsterAbilitiesText: [splitRow.slice(7)]
+                monsterAbilitiesText: splitRow.slice(7).join(", ")  //slice the remaining elements in the array, then merge them together in a single text string
             };
         });
     }
