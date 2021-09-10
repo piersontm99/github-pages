@@ -149,7 +149,11 @@ $(document).ready(function () {
         startingMonster.currentSpeciesLevel = parseInt(startingMonster.monsterSpeciesLevels[startingMonster.currentSpeciesIndex], 16);
 
         //create a dropped monster from the dropped monster dropdown
-        var droppedMonster = monsterDataObjectArray[$("#monster-family-dropped").prop("selectedIndex")];
+        //we have to create a new array because if we have a starting monster that is a high level and we eat a monster of the same type
+        //we run into a reference editting problem and this creates a new array that does not have the same references
+        var droppedMonsterArray = JSON.parse(JSON.stringify(monsterDataObjectArray));
+
+        var droppedMonster = droppedMonsterArray[$("#monster-family-dropped").val()];
         droppedMonster.currentSpeciesIndex = $("#monster-species-dropped").val();
         droppedMonster.currentSpeciesLevel = parseInt(droppedMonster.monsterSpeciesLevels[droppedMonster.currentSpeciesIndex], 16);
 
