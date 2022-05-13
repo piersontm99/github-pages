@@ -6,8 +6,8 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Final Fantasy Legend II Monster Calculator</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel='stylesheet' type='text/css' media='screen' href='/css/main.css'>
 </head>
 
@@ -41,7 +41,7 @@
     <main class="flex-shrink-0">
         <div class="container bg-light p-5 rounded">
             <div class="row">
-                <div id="starter" class="col-4">
+                <div id="starter" class="col-md-4 col-sm-6 mb-xs-2">
                     <div class="container">
                         <div class="row">
                             <div class="col-12">Starter</div>
@@ -91,11 +91,13 @@
                             <span id="monster-stats-start-def" class="col-6"></span>
                         </div>
                         <div class="row">
-                            <p id="monster-stats-start-abilities" class="col-12">
+                            <span class="col-12">Abilities: </span>
+                            <span id="monster-stats-start-abilities" class="col-12">
                         </div>
                     </div>
                 </div>
-                <div id="dropped" class="col-4">
+                <hr class="d-md-none m-2">
+                <div id="dropped" class="col-md-4 col-sm-6 mb-xs-2">
                     <div class="container">
                         <div class="row">
                             <div class="col-12">Dropped</div>
@@ -139,11 +141,13 @@
                             <span id="monster-stats-dropped-def" class="col-6"></span>
                         </div>
                         <div class="row">
-                            <p id="monster-stats-dropped-abilities" class="col-12">
+                            <span class="col-12">Abilities: </span>
+                            <span id="monster-stats-dropped-abilities" class="col-12">
                         </div>
                     </div>
                 </div>
-                <div id="result" class="col-4">
+                <hr class="d-md-none m-2">
+                <div id="result" class="col-md-4 col-sm-6 mb-xs-2">
                     <div class="container">
                         <div class="row">
                             <div class="col-12">Result</div>
@@ -184,16 +188,20 @@
                             <span id="monster-stats-result-def" class="col-6"></span>
                         </div>
                         <div class="row">
-                            <span class="col-6">Abilities: </span>
-                            <span id="monster-stats-result-abilities" class="col-6">
+                            <span class="col-12">Abilities: </span>
+                            <span id="monster-stats-result-abilities" class="col-12">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container">
-            <p>If your starting monster is an Imp, choose Family - Fiend and Species - Fiend with the initial monster checked</p>
-            Credit for monster data goes to <a href="https://gamefaqs.gamespot.com/gameboy/585710-final-fantasy-legend-ii/faqs/16852" target="_blank">Amuseum on GameFAQs</a>.
+            <p>If your starting monster is an Imp, choose Family - Fiend and Species - Fiend with the initial monster
+                checked
+            </p>
+            <span> Credit for monster data goes to 
+                <a href="https://gamefaqs.gamespot.com/gameboy/585710-final-fantasy-legend-ii/faqs/16852" target="_blank">Amuseum on GameFAQs</a>.
+            </span>
         </div>
     </main>
 
@@ -203,8 +211,8 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="monsterdatatext.js"></script>
