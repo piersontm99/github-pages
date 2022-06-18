@@ -16,7 +16,7 @@ $(document).ready(function () {
         loadMonsterSpecies(event.target.selectedIndex, "monster-species-start");
         displayInitialMonsterCheckbox();
         var monsterStats = determineMonsterStatsToFind();
-        displayMonsterStats(monsterStats, "start");        
+        displayMonsterStats(monsterStats, "start");
         displayNewMonster();
     });
 
@@ -24,7 +24,7 @@ $(document).ready(function () {
         var monsterStats = findMonsterStatsByName(monsterDataObjectArray[$("#monster-family-start").val()].monsterSpecies[event.target.selectedIndex]);
         displayInitialMonsterCheckbox();
         displayMonsterStats(monsterStats, "start");
-        
+
         displayNewMonster();
     });
 
@@ -83,8 +83,7 @@ $(document).ready(function () {
 
     function loadMonsterFamily() {
         $.each(monsterDataObjectArray, function (index, monster) {
-            if(index < 36)
-            {
+            if (index < 36) {
                 $("select[id=monster-family-start").append(new Option(monster.monsterFamily, monster.monsterIndex));
             }
             $("select[id=monster-family-dropped").append(new Option(monster.monsterFamily, monster.monsterIndex));
@@ -94,7 +93,10 @@ $(document).ready(function () {
     function loadMonsterSpecies(monsterDataIndex, selectId) {
         $(`#${selectId}`).empty();
         $.each(monsterDataObjectArray[monsterDataIndex].monsterSpecies, function (index, species) {
-            $(`#${selectId}`).append(new Option(species, index));
+            //special rule for TianLung, there is no additional species for it so we don't want a blank entry in the dropdown
+            if (species != "") {
+                $(`#${selectId}`).append(new Option(species, index));
+            }
         })
     }
 
@@ -154,6 +156,11 @@ $(document).ready(function () {
         var droppedMonsterArray = JSON.parse(JSON.stringify(monsterDataObjectArray));
 
         var droppedMonster = droppedMonsterArray[$("#monster-family-dropped").val()];
+        //if the selected monster is outside the main 35 monster families, inject the special monsters levels into the dropped monster object
+        if ($("#monster-family-dropped").prop('selectedIndex') > 34) {
+            droppedMonster.monsterSpeciesLevels = droppedMonsterArray[$("#monster-family-dropped").prop('selectedIndex')].monsterSpeciesLevels
+
+        }
         droppedMonster.currentSpeciesIndex = $("#monster-species-dropped").val();
         droppedMonster.currentSpeciesLevel = parseInt(droppedMonster.monsterSpeciesLevels[droppedMonster.currentSpeciesIndex], 16);
 
@@ -211,7 +218,7 @@ $(document).ready(function () {
         return speciesIndex;
     }
 
-    function determineMonsterStatsToFind(){
+    function determineMonsterStatsToFind() {
         if (isInitialMonster()) {
             if ($("#monster-family-start").get(0).selectedIndex === 31) {
                 return findMonsterStatsByName("Imp");
