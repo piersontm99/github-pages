@@ -104,9 +104,11 @@ $(document).ready(function () {
     function displayInitialMonsterCheckbox() {
         var monsterFamilyIndex = $("#monster-family-start").get(0).selectedIndex;
         var monsterSpeciesIndex = $("#monster-species-start").get(0).selectedIndex;
+        //6 = Slime, 20 = Baby-D, 31 = Imp only show initial monster checkbox for them
         if ((monsterFamilyIndex === 6 || monsterFamilyIndex === 20 || monsterFamilyIndex === 31) && monsterSpeciesIndex == 0) {
             $("#initial-monster").show();
         } else {
+            //hide and reset the checkbox if not an initial monster
             $("#initial-monster").hide();
             $("#initial-monster-cb").prop("checked", false);
         }
