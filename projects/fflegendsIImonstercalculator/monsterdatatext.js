@@ -35,8 +35,8 @@ var monsterDataText =
 33,A,Skelton,18,Red Bone,Warrior,BoneKing,Lich,126AB
 34,B,Zombie,18,Ghoul,Ghast,Wight,Revenant,248AB
 35,C,O-Bake,18,Phantom,Wraith,Spector,Ghost,578AB
-6,A,Plasma,24,Phagocyt,Corpuscl,Cancer,346AB
-6,A,Grippe,24,Virus,Pathogen,Plague,347AB
+6,A,Plasma,24,Phagocyt,Corpuscl,Cancer,346A
+6,A,Grippe,24,Virus,Pathogen,Plague,347A
 24,A,OdinCrow,9,Fenrir,7B
 20,C,TianLung,3,,B`;
 

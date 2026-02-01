@@ -83,6 +83,7 @@ $(document).ready(function () {
 
     function loadMonsterFamily() {
         $.each(monsterDataObjectArray, function (index, monster) {
+            //there are 36 monster families you can be, there are 4 additional monsters in the data we need to ignore for starter
             if (index < 36) {
                 $("select[id=monster-family-start").append(new Option(monster.monsterFamily, monster.monsterIndex));
             }
@@ -158,10 +159,9 @@ $(document).ready(function () {
         var droppedMonsterArray = JSON.parse(JSON.stringify(monsterDataObjectArray));
 
         var droppedMonster = droppedMonsterArray[$("#monster-family-dropped").val()];
-        //if the selected monster is outside the main 35 monster families, inject the special monsters levels into the dropped monster object
-        if ($("#monster-family-dropped").prop('selectedIndex') > 34) {
+        //if the selected monster is outside the main 36 monster families, inject the special monsters levels into the dropped monster object
+        if ($("#monster-family-dropped").prop('selectedIndex') > 35) {
             droppedMonster.monsterSpeciesLevels = droppedMonsterArray[$("#monster-family-dropped").prop('selectedIndex')].monsterSpeciesLevels
-
         }
         droppedMonster.currentSpeciesIndex = $("#monster-species-dropped").val();
         droppedMonster.currentSpeciesLevel = parseInt(droppedMonster.monsterSpeciesLevels[droppedMonster.currentSpeciesIndex], 16);
